@@ -35,4 +35,17 @@ document.addEventListener('DOMContentLoaded', () => {
     clothingList.appendChild(card);
   }
 
+  // Function to add an item to the cart
+  function addToCart(item) {
+    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
+
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      cart.push({ ...item, quantity: 1 });
+    }
+
+    updateCart();
+  }
+
 });
