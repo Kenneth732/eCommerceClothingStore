@@ -96,4 +96,24 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCart();
   }
 
+  // Function to increase the quantity of an item in the cart
+  function increaseQuantity(item) {
+    item.quantity++;
+    updateCart();
+  }
+
+  // Function to remove an item from the cart
+  function removeFromCart(item) {
+    const index = cart.findIndex((cartItem) => cartItem.id === item.id);
+    if (index !== -1) {
+      cart.splice(index, 1);
+    }
+    updateCart();
+  }
+
+  // Toggle the cart display when clicking on the cart icon
+  cartIcon.addEventListener('click', () => {
+    const cartDiv = document.getElementById('cart');
+    cartDiv.classList.toggle('active');
+  });
 });
