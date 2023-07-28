@@ -7,5 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const cart = [];
 
   // Fetch clothing data from JSON and render it on the webpage
+  fetch('db.json')
+    .then((res) => res.json())
+    .then((data) => {
+      data.clothingData.forEach((item) => {
+        renderClothingItem(item);
+      });
+    })
+    .catch((error) => console.error('Error fetching data:', error));
 
+  // Function to render a single clothing item on the webpage
+ 
 });
