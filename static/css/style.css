@@ -9,3 +9,9 @@ body {
     text-align: center;
     padding: 1rem;
   }
+
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
