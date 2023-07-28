@@ -48,4 +48,52 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCart();
   }
 
+  // Function to update the cart and render it
+  function updateCart() {
+    cartItems.innerHTML = '';
+    let totalPrice = 0;
+
+    cart.forEach((item) => {
+      const cartItem = document.createElement('li');
+      cartItem.classList.add('cartItem');
+      cartItem.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+        <span>${item.name}</span>
+        <button class="quantityBtn decrease" data-id="${item.id}">-</button>
+        <span>${item.quantity}</span>
+        <button class="quantityBtn increase" data-id="${item.id}">+</button>
+        <span>$${item.price * item.quantity}</span>
+        <button class="removeBtn" data-id="${item.id}">Remove</button>
+      `;
+
+      const decreaseBtn = cartItem.querySelector('.decrease');
+      const increaseBtn = cartItem.querySelector('.increase');
+      const removeBtn = cartItem.querySelector('.removeBtn');
+
+      decreaseBtn.addEventListener('click', () => {
+        decreaseQuantity(item);
+      });
+
+      increaseBtn.addEventListener('click', () => {
+        increaseQuantity(item);
+      });
+
+      removeBtn.addEventListener('click', () => {
+        removeFromCart(item);
+      });
+
+      cartItems.appendChild(cartItem);
+      totalPrice += item.price * item.quantity;
+    });
+
+    totalPriceElement.textContent = totalPrice;
+    document.getElementById('cartItemCount').textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
+  }
+
+  // Function to decrease the quantity of an item in the cart
+  function decreaseQuantity(item) {
+    item.quantity = Math.max(0, item.quantity - 1);
+    updateCart();
+  }
+
 });
