@@ -3,19 +3,20 @@ body {
     margin: 0;
     padding: 0;
   }
+  
   header {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 1rem;
   }
-
+  
   main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-
+  
   .card {
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -25,23 +26,28 @@ body {
     width: 220px;
   }
   
+  .card img {
+    max-width: 100%;
+    border-radius: 4px;
+  }
+  
   .card h3 {
     margin-top: 0;
     margin-bottom: 0.5rem;
   }
-
+  
   .card p {
     margin-top: 0.5rem;
     margin-bottom: 0;
   }
-
+  
   .cartItem {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
   }
-
+  
   .cartItem img {
     max-width: 40px;
     margin-right: 1rem;
@@ -56,9 +62,30 @@ body {
     width: 250px;
     padding: 1rem;
   }
-
+  
   #cart h2 {
     margin-top: 0;
     margin-bottom: 1rem;
+  }
+  
+  #totalPrice {
+    font-weight: bold;
+  }
+  
+  button {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:active {
+    background-color: #004080;
   }
   
