@@ -17,5 +17,22 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch((error) => console.error('Error fetching data:', error));
 
   // Function to render a single clothing item on the webpage
- 
+  function renderClothingItem(item) {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML = `
+      <h3>${item.name}</h3>
+      <img src="${item.image}" alt="${item.name}">
+      <p>Price: $${item.price}</p>
+      <button class="addToCartBtn" data-id="${item.id}">Add to Cart</button>
+    `;
+
+    const addToCartBtn = card.querySelector('.addToCartBtn');
+    addToCartBtn.addEventListener('click', () => {
+      addToCart(item);
+    });
+
+    clothingList.appendChild(card);
+  }
+
 });
