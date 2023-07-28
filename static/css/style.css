@@ -47,4 +47,18 @@ body {
     margin-right: 1rem;
   }
   
+  #cart {
+    background-color: #f9f9f9;
+    border-top: 1px solid #ccc;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 250px;
+    padding: 1rem;
+  }
+
+  #cart h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
   
